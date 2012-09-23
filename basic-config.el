@@ -1,3 +1,9 @@
+;;用space填充tab
+(setq-default indent-tabs-mode nil)
+;；设置Tab宽度为4  
+(setq tab-width 4)
+;；设置Tab换为4个空格,不用Tab进行排版
+(setq tab-width 4 indent-tabs-mode nil)
 ;;设置读取写入文件的格式
 (setq default-buffer-file-coding-system ' utf-8)
 (prefer-coding-system  'utf-8)
