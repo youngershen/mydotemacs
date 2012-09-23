@@ -28,6 +28,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-nav-49/")
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets/")
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c/")
+;;(add-to-list 'load-path "~/.emacs.d/emacs-rails-reloaded/")
 ;;加载配置文件
 (load "basic-config")
 (load "ido")
@@ -36,3 +37,5 @@
 (load "nav")
 (load "yasnippet")
 (load "pymacs")
+(setq load-path (cons (expand-file-name "~/.emacs.d/emacs-rails-reloaded/") load-path))
+(require 'rails-autoload)
