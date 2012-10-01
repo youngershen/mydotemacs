@@ -19,6 +19,15 @@
 (add-to-list 'load-path "~/sources/slime")  
 (require 'slime)  
 (slime-setup '(slime-fancy)) 
+;;加载ELPA
+(let ((buffer (url-retrieve-synchronously
+	       "http://tromey.com/elpa/package-install.el")))
+(save-excursion
+    (set-buffer buffer)
+    (goto-char (point-min))
+    (re-search-forward "^$" nil 'move)
+    (eval-region (point) (point-max))
+    (kill-buffer (current-buffer))))
 
 ;;添加加载路径
 (add-to-list 'load-path "~/.emacs.d/")
@@ -39,3 +48,14 @@
 (load "pymacs")
 (setq load-path (cons (expand-file-name "~/.emacs.d/emacs-rails-reloaded/") load-path))
 (require 'rails-autoload)
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))

@@ -1,3 +1,5 @@
+;;设置中文语言环境
+;;(set-language-enviroment 'Chinese-GB)
 ;;用space填充tab
 (setq-default indent-tabs-mode nil)
 ;；设置Tab宽度为4  
@@ -5,7 +7,22 @@
 ;；设置Tab换为4个空格,不用Tab进行排版
 (setq tab-width 4 indent-tabs-mode nil)
 ;;设置读取写入文件的格式
-(setq default-buffer-file-coding-system ' utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+;;键盘输入编码方式
+(set-keyboard-coding-system 'utf-8)
+;;读取活着写入文件名的编码方式
+(setq file-name-coding-system 'utf-8)
+;;打开进入text模式
+(setq default-major-mode 'text-mode)
+;;禁用启动信息
+(setq inhibit-startup-messate t)
+;;取消提示音
+(setq visible-bell t)
+;;用yn代替yesno
+(fset 'yes-or-no-p 'y-or-n-p)
+;;显示括号匹配
+(show-paren-mode t)
 (prefer-coding-system  'utf-8)
 ;;设置字体
 (set-default-font "Bitstream Charter-10")
@@ -109,7 +126,10 @@ scroll-conservatively 10000)
 ;;改变emacs标题栏的标题 
 (setq frame-title-format "%b@vj.org") 
 ;;允许emacs和外部其他程序的粘贴 
-(setq x-select-enable-clipboard t) 
+(setq x-select-enable-clipboard t)
+;;设置开启时只显示一个窗口
+(switch-to-buffer buffer-file-name)
+(delete-other-windows) 
 ;;自动补全
 (require 'auto-complete)
 (require 'auto-complete-config)
